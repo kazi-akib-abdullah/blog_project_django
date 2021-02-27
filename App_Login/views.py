@@ -52,6 +52,7 @@ def user_change(request):
         if form.is_valid():
             form.save()
             form = UserProfileChange(instance = current_user)
+            return HttpResponseRedirect(reverse('App_Login:profile'))
     return render(request, 'App_Login/change_profile.html', context={'form':form})
 
 @login_required
